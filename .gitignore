@@ -8,3 +8,6 @@ __pycache__/
 # Data
 data/*
 !data/sample/
+
+# Output
+output/*
