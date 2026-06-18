@@ -22,9 +22,9 @@ def main():
 
     dt = datetime.today().strftime('%Y-%m-%d')
 
-    os.makedirs(f'data/raw/{dt}', exist_ok=True)
+    os.makedirs(f'data/date={dt}', exist_ok=True)
 
-    df_normalized.to_csv(f'data/raw/{dt}/standings.csv', index=False)
+    df_normalized.to_csv(f'data/date={dt}/standings.csv', index=False)
 
 if __name__ == '__main__':
     main()
