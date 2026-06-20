@@ -23,8 +23,12 @@ df = spark.read.csv(
 df = df \
     .withColumn(
         'points_per_game',
-        F.round(
-            F.col('points') / F.col('playedGames'), 2
+        F.when(
+            F.col('playedGames') == 0, 0
+        ).otherwise(
+            F.round(
+                F.col('points') / F.col('playedGames'), 2
+            )
         )
     ) \
     .select(
