@@ -20,7 +20,6 @@ df = spark.read.csv(
     mode="PERMISSIVE"
 )
 
-
 df = df \
     .withColumn(
         'points_per_game',
