@@ -11,7 +11,7 @@ aws emr-serverless start-job-run \
         "sparkSubmit": {
             "entryPoint": "s3://'$BUCKET_NAME'/scripts/spark_pipeline.py",
             "entryPointArguments": [
-                "s3://'$BUCKET_NAME'/landing/date='$DT'/standings.csv",
+                "s3://'$BUCKET_NAME'/landing/",
                 "s3://'$BUCKET_NAME'/processed/"
             ],
             "sparkSubmitParameters": "--conf spark.executor.cores=2 --conf spark.executor.memory=4g --conf spark.driver.memory=2g"
