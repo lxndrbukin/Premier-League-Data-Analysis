@@ -87,7 +87,18 @@ if s3_path_exists(bucket, key=f'{key}/date={last_week_str}/standings.csv'):
     df_result = df_joined
 
 else:
-    df_result = df_today
+    df_result= df_today \
+        .withColumn(
+            'positions_gained', 0
+        ) \
+        .withColumn(
+            'points_gained', 0
+        ) \
+        .select(
+            F.col('position_today').alias('position'),
+            'positions_gained', 'name',
+            F.col('points_today').alias('points'), 'points_gained'
+        )
 
 df_result.write \
     .mode('overwrite') \
