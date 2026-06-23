@@ -1,5 +1,4 @@
 import sys
-import os
 import boto3
 from botocore.exceptions import ClientError
 from pyspark.sql import SparkSession, functions as F
@@ -89,10 +88,10 @@ if s3_path_exists(bucket, key=f'{key}/date={last_week_str}/standings.csv'):
 else:
     df_result= df_today \
         .withColumn(
-            'positions_gained', 0
+            'positions_gained', F.lit(0)
         ) \
         .withColumn(
-            'points_gained', 0
+            'points_gained', F.lit(0)
         ) \
         .select(
             F.col('position_today').alias('position'),
