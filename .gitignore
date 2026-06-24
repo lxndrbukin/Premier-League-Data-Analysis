@@ -9,6 +9,7 @@ __pycache__/
 # Data
 data/*
 !data/sample/
+logs/
 
 # Output
 output/*
